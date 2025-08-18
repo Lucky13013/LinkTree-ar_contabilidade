@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Lucky13013/LinkTree-ar_contabilidade.git/static/css/main.11bcaa6d.css",
+    "main.js": "/Lucky13013/LinkTree-ar_contabilidade.git/static/js/main.9c81ffc7.js",
+    "static/js/453.4f195bd6.chunk.js": "/Lucky13013/LinkTree-ar_contabilidade.git/static/js/453.4f195bd6.chunk.js",
+    "index.html": "/Lucky13013/LinkTree-ar_contabilidade.git/index.html",
+    "main.11bcaa6d.css.map": "/Lucky13013/LinkTree-ar_contabilidade.git/static/css/main.11bcaa6d.css.map",
+    "main.9c81ffc7.js.map": "/Lucky13013/LinkTree-ar_contabilidade.git/static/js/main.9c81ffc7.js.map",
+    "453.4f195bd6.chunk.js.map": "/Lucky13013/LinkTree-ar_contabilidade.git/static/js/453.4f195bd6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.11bcaa6d.css",
+    "static/js/main.9c81ffc7.js"
+  ]
+}
