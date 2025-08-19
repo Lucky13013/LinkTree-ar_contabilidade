@@ -2,7 +2,7 @@
   "name": "linktree-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Lucky13013/LinkTree-ar_contabilidade.git",
+  "homepage": "https://lucky13013.github.io/LinkTree-ar_contabilidade/",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.7.0",

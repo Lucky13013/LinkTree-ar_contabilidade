@@ -1,23 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+/* Importa uma fonte mais moderna para um visual limpo */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
-:root {
-  --background-color: #121212;
-  --container-color: #E0E0E0;
-  --text-color-dark: #333;
-  --text-color-light: #666;
-  --button-bg-color: #F5F5F5;
-  --button-border-color: #DCDCDC;
-  --section-title-color: #A0A0A0;
-  --accent-color: #4A4A4A;
+/* Define as animações que vamos usar */
+@keyframes moveGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- ESTILOS GERAIS --- */
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif; /* Nova fonte aplicada */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background-color);
-  color: var(--text-color-dark);
+  color: #fff;
 }
 
 .background {
@@ -27,35 +35,30 @@ body {
   min-height: 100vh;
   padding: 20px;
   box-sizing: border-box;
+
+  /* Fundo gradiente animado e dinâmico */
+  background: linear-gradient(-45deg, #232526, #414345, #23A6D5, #7F7FD5);
+  background-size: 400% 400%;
+  animation: moveGradient 18s ease infinite;
 }
 
+/* --- CONTAINER PRINCIPAL --- */
 .link-container {
-  background-color: var(--container-color);
+  /* Efeito de vidro no container principal */
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
   width: 100%;
   max-width: 420px;
   border-radius: 24px;
-  padding: 25px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  position: relative; /* Necessário para posicionar o botão de compartilhar */
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
-.share-button-top {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 1.2em;
-  color: var(--text-color-light);
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.share-button-top:hover {
-  color: var(--text-color-dark);
-}
-
-
+/* --- CABEÇALHO E TEXTOS --- */
 .header {
   text-align: center;
   margin-bottom: 30px;
@@ -66,34 +69,53 @@ body {
   height: 90px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid var(--accent-color);
+  border: 3px solid rgba(255, 255, 255, 0.8);
   margin-bottom: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  /* Animação de entrada */
+  opacity: 0;
+  animation: fadeInUp 0.5s ease 0.1s forwards;
 }
 
 .title {
-  font-size: 1.5em;
+  font-size: 1.8em;
   font-weight: 700;
   margin: 0;
-  color: var(--text-color-dark);
+  color: #fff;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  animation: fadeInUp 0.5s ease 0.2s forwards;
 }
 
 .subtitle {
   font-size: 0.9em;
-  color: var(--text-color-light);
-  margin: 5px 0 0 0;
+  color: #ddd;
+  margin: 8px 0 0 0;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease 0.3s forwards;
 }
 
+/* --- SEÇÕES E BOTÕES --- */
 .link-section {
   margin-bottom: 25px;
+  /* Animação de entrada para cada seção de links */
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
 }
+/* Adiciona um atraso escalonado para cada seção aparecer */
+.link-section:nth-of-type(1) { animation-delay: 0.4s; }
+.link-section:nth-of-type(2) { animation-delay: 0.5s; }
+.link-section:nth-of-type(3) { animation-delay: 0.6s; }
+
 
 .section-title {
   text-align: center;
   font-size: 0.8em;
   font-weight: 600;
-  color: var(--section-title-color);
+  color: #ccc;
   margin-bottom: 15px;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .links-list {
@@ -102,30 +124,37 @@ body {
   gap: 15px;
 }
 
-.link-button-icon {
-  background-color: var(--button-bg-color);
-  border: 1px solid var(--button-border-color);
+/* Estilo base para todos os botões (Glassmorphism) */
+.link-button-icon, .link-button-special {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 12px;
   padding: 12px 15px;
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: var(--text-color-dark);
-  font-weight: 600;
-  font-size: 0.9em;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.95em;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.link-button-icon:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* Efeito de hover aprimorado */
+.link-button-icon:hover, .link-button-special:hover {
+  transform: scale(1.05) translateY(-3px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .link-icon {
   font-size: 1.4em;
   margin-right: 15px;
-  color: var(--accent-color);
+  color: #fff;
   flex-shrink: 0;
+  opacity: 0.9;
 }
 
 .link-title {
@@ -135,191 +164,21 @@ body {
 
 .arrow-icon {
   font-size: 1.5em;
-  color: var(--text-color-light);
+  color: #ddd;
 }
 
-.link-button-special {
-  background-color: var(--button-bg-color);
-  border: 1px solid var(--button-border-color);
-  border-radius: 12px;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: var(--text-color-dark);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.link-button-special:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
+/* Ajustes para o botão especial */
 .link-button-special .link-title {
   text-align: center;
   font-weight: 600;
-  font-size: 0.9em;
 }
 
 .link-button-special .link-icon {
-  font-size: 1.2em;
-  color: #25D366;
-  margin-right: 0;
+  color: #25D366; /* Cor do WhatsApp */
   margin-left: auto;
+  margin-right: 0;
 }
 
 .link-button-special .arrow-icon {
   display: none;
-}
-
-
-/* --- ESTILOS DO MODAL --- */
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 20px;
-  width: 90%;
-  max-width: 450px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  animation: slideUp 0.3s ease-out;
-}
-
-@keyframes slideUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.modal-header h3 {
-  margin: 0;
-  font-weight: 700;
-}
-
-.close-button {
-  background: none;
-  border: none;
-  font-size: 1.5em;
-  cursor: pointer;
-  color: #888;
-}
-
-.share-card {
-  background-color: #1E1E1E;
-  color: white;
-  border-radius: 16px;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.share-card-image {
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.share-card-info h4 {
-  margin: 0 0 5px 0;
-  font-size: 1em;
-}
-.share-card-info p {
-  margin: 0;
-  font-size: 0.8em;
-  opacity: 0.8;
-}
-
-.social-share-buttons {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
-}
-
-.social-icon-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  text-align: center;
-}
-
-.social-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.8em;
-  color: white;
-}
-
-.social-icon-wrapper span {
-  font-size: 0.75em;
-  color: var(--text-color-light);
-}
-
-.modal-footer {
-  text-align: center;
-}
-
-.modal-footer p {
-  font-size: 0.9em;
-  margin-bottom: 15px;
-}
-
-.btn-primary, .btn-secondary, .btn-report {
-  width: 100%;
-  padding: 15px;
-  border-radius: 30px;
-  border: none;
-  font-weight: 700;
-  font-size: 1em;
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-
-.btn-primary {
-  background-color: #000;
-  color: #fff;
-}
-
-.btn-secondary {
-  background-color: transparent;
-  color: #000;
-  border: 2px solid #000;
-}
-
-.btn-report {
-  background: none;
-  color: var(--text-color-light);
-  font-weight: 500;
-  text-decoration: underline;
 }
