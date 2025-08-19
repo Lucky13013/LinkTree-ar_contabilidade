@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/LinkTree-ar_contabilidade/static/css/main.11bcaa6d.css",
+    "main.css": "/LinkTree-ar_contabilidade/static/css/main.3e3271b2.css",
     "main.js": "/LinkTree-ar_contabilidade/static/js/main.83092f02.js",
     "static/js/453.4f195bd6.chunk.js": "/LinkTree-ar_contabilidade/static/js/453.4f195bd6.chunk.js",
     "index.html": "/LinkTree-ar_contabilidade/index.html",
-    "main.11bcaa6d.css.map": "/LinkTree-ar_contabilidade/static/css/main.11bcaa6d.css.map",
+    "main.3e3271b2.css.map": "/LinkTree-ar_contabilidade/static/css/main.3e3271b2.css.map",
     "main.83092f02.js.map": "/LinkTree-ar_contabilidade/static/js/main.83092f02.js.map",
     "453.4f195bd6.chunk.js.map": "/LinkTree-ar_contabilidade/static/js/453.4f195bd6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.11bcaa6d.css",
+    "static/css/main.3e3271b2.css",
     "static/js/main.83092f02.js"
   ]
 }
